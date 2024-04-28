@@ -1,0 +1,201 @@
+# Blender MTL File: 'Speaker_KRK_classic5.blend'
+# Material Count: 18
+
+newmtl BLK_pure
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+
+newmtl Chrome
+Ns 796.778920
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+
+newmtl Front_driver
+Ns 171.371902
+Ka 1.000000 1.000000 1.000000
+Kd 0.004025 0.004025 0.004025
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Front_driver_Normal.png
+
+newmtl Front_driver_yellow.001
+Ns 500.132237
+Ka 1.000000 1.000000 1.000000
+Kd 0.825801 0.450183 0.063379
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Front_driver_yellow_Normal.png
+
+newmtl Front_material
+Ns 512.404953
+Ka 1.000000 1.000000 1.000000
+Kd 0.002428 0.002428 0.002428
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Front_material_Normal.png
+
+newmtl Front_material_face
+Ns 440.999985
+Ka 1.000000 1.000000 1.000000
+Kd 0.002428 0.002428 0.002428
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Front_material2_Normal.png
+map_Kd D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Front_material2_face_BaseColor.png
+map_Ns D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Front_material2_face_Roughness.png
+
+newmtl Front_tweeter
+Ns 692.646703
+Ka 1.000000 1.000000 1.000000
+Kd 0.002643 0.002643 0.002643
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Front_tweeter_Normal.png
+map_Ns D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Front_tweeter_Roughness.png
+
+newmtl Metal_blk
+Ns 595.803696
+Ka 1.000000 1.000000 1.000000
+Kd 0.009975 0.009975 0.009975
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+
+newmtl Middle_material
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.006512 0.006512 0.006512
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Middle_material_Normal.png
+
+newmtl Plastic_noisy_blk
+Ns 314.256201
+Ka 1.000000 1.000000 1.000000
+Kd 0.016285 0.016285 0.016285
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Plastic_noisy_blk_Normal.png
+
+newmtl Plastic_noisy_blk.001
+Ns 401.820234
+Ka 1.000000 1.000000 1.000000
+Kd 0.004328 0.004328 0.004328
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Plastic_noisy_blk.001_Normal.png
+map_Kd D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Plastic_noisy_blk.001_BaseColor.png
+
+newmtl Plastic_noisy_blk_dark
+Ns 7.438022
+Ka 1.000000 1.000000 1.000000
+Kd 0.002443 0.002443 0.002443
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Plastic_noisy_blk_Normal.png
+
+newmtl Plastic_noisy_brwn
+Ns 272.250012
+Ka 1.000000 1.000000 1.000000
+Kd 0.010819 0.002771 0.001850
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Plastic_noisy_brwn_Normal.png
+
+newmtl Plastic_smooth_rca
+Ns 488.008282
+Ka 1.000000 1.000000 1.000000
+Kd 0.005844 0.005844 0.005844
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Plastic_smooth_vol
+Ns 487.526402
+Ka 1.000000 1.000000 1.000000
+Kd 0.005844 0.005844 0.005844
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 1.400000 D:\\Blender 3D scratch disk folder\\Speaker-KRK\\Textures\\zVolume_NRM.png
+
+newmtl Plastic_smooth_xlr
+Ns 488.008282
+Ka 1.000000 1.000000 1.000000
+Kd 0.005844 0.005844 0.005844
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Blender 3D scratch disk folder\\Speaker-KRK\\Textures\\XLR_NRM.png
+
+newmtl Plastic_smooth_yel
+Ns 488.008282
+Ka 1.000000 1.000000 1.000000
+Kd 0.630757 0.485150 0.002125
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Speaker_back
+Ns 664.233495
+Ka 1.000000 1.000000 1.000000
+Kd 0.015199 0.014395 0.014197
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Speaker_back_Normal.png
+map_Kd D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Speaker_back_BaseColor.png
+refl D:\\Blender 3D scratch disk folder\\Speaker-KRK\\ForPBR\\Speaker_back_Metallic.png
