@@ -3,7 +3,12 @@ guid: 658fec6c76623c84fa10eb75e7464918
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FACE.PLATE.lo res02.001_Bake1_baked
+    second: {fileID: 2100000, guid: f18bccbb8725d864d8f74c62c03f5d09, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

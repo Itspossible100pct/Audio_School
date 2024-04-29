@@ -11,7 +11,6 @@ public class DistanceToWallVisualizer : MonoBehaviour
     private OVRSceneRoom _sceneRoom;
     private OVRScenePlane[] _roomWalls;
     
-    // Start is called before the first frame update
     void Awake()
     {
         _oVRSceneManager = FindObjectOfType<OVRSceneManager>();

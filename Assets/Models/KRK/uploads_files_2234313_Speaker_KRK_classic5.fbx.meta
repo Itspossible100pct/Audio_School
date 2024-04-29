@@ -3,7 +3,97 @@ guid: 1b13de972e1f35441b468acfcc36c221
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLK_pure
+    second: {fileID: 2100000, guid: 851ec3a947e38904ba709829f43c6a6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chrome
+    second: {fileID: 2100000, guid: df01651ea35bb4c498b094264b764864, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Front_driver
+    second: {fileID: 2100000, guid: 3d5c5e91c69e54a429118e9843be693b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Front_driver_yellow.001
+    second: {fileID: 2100000, guid: 43f49bbb102a86247b05365e700023b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Front_material
+    second: {fileID: 2100000, guid: 3adf88f3655355c45b3d43e95fecc6da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Front_material_face
+    second: {fileID: 2100000, guid: 9397725ec1ad980438e23c62c21cb831, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Front_tweeter
+    second: {fileID: 2100000, guid: 67de830b7dd2de2428297dbd44d32e97, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_blk
+    second: {fileID: 2100000, guid: e649af9c8e109264cb91e17b70b6be8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Middle_material
+    second: {fileID: 2100000, guid: f747b623a33e26d4fa5e09ae0823bb76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_noisy_blk
+    second: {fileID: 2100000, guid: 8d6fdf0933e68314fa52be1dc9fc3ca2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_noisy_blk.001
+    second: {fileID: 2100000, guid: 943e3f38dee72fe489b39494cc18c1ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_noisy_blk_dark
+    second: {fileID: 2100000, guid: c1fdca3dc821d2e48abb52a9d96d50a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_noisy_brwn
+    second: {fileID: 2100000, guid: 1d36ade9d30c6aa41ab2443d8b6f1a86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_smooth_rca
+    second: {fileID: 2100000, guid: 5894be76fa441bc49b4d69840b5a5896, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_smooth_vol
+    second: {fileID: 2100000, guid: 9052b864582d7dd4cb0cbde323d1d20e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_smooth_xlr
+    second: {fileID: 2100000, guid: b45dc1721787a3c4ab3614f49c6bf620, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic_smooth_yel
+    second: {fileID: 2100000, guid: d0152a700bac5764c977ca9253f8351f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_back
+    second: {fileID: 2100000, guid: 26766fcc65478a74c803f3cdc0433267, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

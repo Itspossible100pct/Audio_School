@@ -8,6 +8,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2346280944246229638, guid: c64d8176228f57e40acd45724530bc4b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346280944246229638, guid: c64d8176228f57e40acd45724530bc4b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346280944246229638, guid: c64d8176228f57e40acd45724530bc4b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 3148580525838139542, guid: c64d8176228f57e40acd45724530bc4b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -111,7 +126,7 @@ PrefabInstance:
     - target: {fileID: 4052912021061025443, guid: c64d8176228f57e40acd45724530bc4b,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4361316698963401673, guid: c64d8176228f57e40acd45724530bc4b,
         type: 3}
@@ -132,6 +147,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArtistPic_Canvas Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598145363807037642, guid: c64d8176228f57e40acd45724530bc4b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598145363807037642, guid: c64d8176228f57e40acd45724530bc4b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598145363807037642, guid: c64d8176228f57e40acd45724530bc4b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598145363807037642, guid: c64d8176228f57e40acd45724530bc4b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598145363807037642, guid: c64d8176228f57e40acd45724530bc4b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

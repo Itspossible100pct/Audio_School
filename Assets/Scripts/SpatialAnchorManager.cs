@@ -36,6 +36,10 @@ public class SpatialAnchorManager : MonoBehaviour
         {
             UnsaveLastCreatedAnchor();
         }
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.RTouch))
+        {
+            UnsaveAllAnchors();
+        }
 
         if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick, OVRInput.Controller.RTouch))
         {
