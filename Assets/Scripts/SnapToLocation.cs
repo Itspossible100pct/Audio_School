@@ -1,21 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Oculus.Interaction.PoseDetection;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class SnapToLocation : MonoBehaviour
 {
-    enum Connector
-    {
-        XlrSend = 0,
-        XlrRecieve = 1,
-        JackSend = 2,
-        JackRecieve = 3,
-        RcaWhite = 4,
-        RcaRed = 5,
-        MiniJack = 6
-    }
+   
     
     
     private bool _grabbed;
@@ -28,16 +20,17 @@ public class SnapToLocation : MonoBehaviour
     // Detects when connector game object has entered the snap zone radius
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == connector.name)
+        if (other.gameObject.name == connector.name && !snapped)
         {
             _insideSnapZone = true;
             Debug.Log("entered");
+            SnapObject();
         }
     }
     // Detects when connector game object has left the snap zone radius
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == connector.name )
+        if (other.gameObject.name == connector.name  )
         {
             _insideSnapZone = false;
             Debug.Log("left");
@@ -47,15 +40,18 @@ public class SnapToLocation : MonoBehaviour
     {
         if (_grabbed == false && _insideSnapZone)
         {
-            connector.gameObject.transform.position = transform.position;
-            connector.gameObject.transform.rotation = _snapRotationReference.transform.rotation;
             snapped = true;
         }
     }
-    private void Update()
+    private void FixedUpdate()
     {
         // Set grabbed to equal the boolean value "isGrabbed" from OVRGrabbable script
         //_grabbed = connector.GetComponent<OVRGrabbable>().isGrabbed; // check for different script
-        SnapObject();
+        if (snapped)
+        {
+            connector.gameObject.transform.position = transform.position;
+            connector.gameObject.transform.rotation = _snapRotationReference.transform.rotation;
+        }
+        
     }
 }

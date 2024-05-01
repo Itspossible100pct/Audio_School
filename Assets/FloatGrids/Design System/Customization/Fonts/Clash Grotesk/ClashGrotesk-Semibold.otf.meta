@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 1387b1aefe5fcfd4a87ab150917a7fa8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Clash Grotesk
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 91836dbb6534af542a07c46000053e36, type: 3}
+  - {fileID: 12800000, guid: 923bd54e335058448a1b3ddf232a8caf, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

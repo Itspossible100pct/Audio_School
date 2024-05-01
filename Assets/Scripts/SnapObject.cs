@@ -8,7 +8,7 @@ public class SnapObject : MonoBehaviour
     [SerializeField] private GameObject _snapDestination;
     
     //Reference game object that the snapped objects will become a part of
-    [SerializeField] private GameObject _mic;
+    [SerializeField] private GameObject _newParent;
     public bool isSnapped;
     private bool _objectSnapped;
     private bool _grabbed;
@@ -28,7 +28,7 @@ public class SnapObject : MonoBehaviour
         if (_objectSnapped)
         {
             GetComponent<Rigidbody>().isKinematic = true;
-            transform.SetParent(_mic.transform);
+            transform.SetParent(_newParent.transform);
             isSnapped = true;
         }
         
