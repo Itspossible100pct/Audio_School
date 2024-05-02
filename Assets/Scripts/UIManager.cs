@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI; // Ensure this is added to handle UI components directly
 
@@ -16,6 +17,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _onboard03;
     [SerializeField] private GameObject _onboardMain;
 
+    [SerializeField] private GameObject _cableGroup;
+
     [SerializeField] private AudioSource _canvasAudioSource;
     [SerializeField] private AudioClip _audioBoard01;
     [SerializeField] private AudioClip _audioBoard02;
@@ -24,6 +27,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AudioClip _audioBoard05;
     [SerializeField] private AudioClip _audioBoard06;
 
+    [SerializeField] private AudioSource _bGM;
+    
+    
    
 
     void Start()
@@ -50,12 +56,14 @@ public class UIManager : MonoBehaviour
 
     public void ShowOnboarding()
     {
+        StartCoroutine(DelayBeforeVoiceover(2));
+        _onboardMain.SetActive(true);
         _onboard01.SetActive(true);
         // Display initial onboarding message
         Debug.Log("Welcome to Audio School: Learn your sound tech skills!");
         // Additional logic for playing voiceover or showing visuals can be added here
         StartCoroutine(DelayBeforeVoiceover(3));
-        _canvasAudioSource.Play(_audioBoard01);
+        _canvasAudioSource.PlayOneShot(_audioBoard01);
     }
 
     public void ShowMessageTwo()
@@ -88,10 +96,12 @@ public class UIManager : MonoBehaviour
         
         // Show detailed instructions about XLR cables
         Debug.Log("Introduction to XLR Cables");
-        // Additional instructions, highlighting, and interactive elements can be added here
+        
         StartCoroutine(DelayBeforeVoiceover(1));
         _canvasAudioSource.PlayOneShot(_audioBoard04);
-        StartCoroutine(DelayBeforeVoiceover(10)); 
+        StartCoroutine(DelayBeforeVoiceover(10));
+        _cableGroup.SetActive(true);
+        StartLesson();
     }
 
     public void StartLesson()
@@ -116,5 +126,14 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
     }
+
+    public void FinishLesson()
+    {
+        _canvasAudioSource.PlayOneShot(_audioBoard06);
+        StartCoroutine(DelayBeforeVoiceover(8));
+        
+        _canvasAudioSource.PlayOneShot(_audioBoard05);
+    }
+    
     
 }

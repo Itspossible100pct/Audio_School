@@ -19,8 +19,9 @@ public class SimplePrefabSpawner : MonoBehaviour
     private int _currentPrefabIndex = 0; // Example index to track which prefab is selected
 
     private float _cumulativeYRotation = 0f;
-    
     public bool canPlaceObjects = false;
+    
+    public ConnectionDetector[] connections; // Assign all the ConnectionDetector components
 
     
     
@@ -106,6 +107,17 @@ public class SimplePrefabSpawner : MonoBehaviour
         }
     }
     
+    public void CheckAllConnections()
+    {
+        //if (connections.All(c => c.isConnected))
+        {
+            UIManager uiManager = FindObjectOfType<UIManager>();
+            if (uiManager != null)
+            {
+                uiManager.FinishLesson(); // Call the method that signifies completion
+            }
+        }
+    }
     
     
 }
