@@ -1,7 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ConnectionDetector : MonoBehaviour
 {
+    [SerializeField] private AudioManager _audioManager;
     public bool isConnected = false;
     private MeshRenderer[] allRenderers;  // Array to hold all relevant renderers
 
@@ -13,10 +16,11 @@ public class ConnectionDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Cable"))  // Ensure your cable GameObject has a tag "Cable"
+        if (other.CompareTag("Cable"))
         {
-            isConnected = false;  // Assume not connected initially
-            SetRenderers(true);  // Turn on the renderer when a correct connector is nearby
+            isConnected = true;  // Assume connected when cable triggers the collider
+            SetRenderers(true);
+            //_audioManager.PlayConnectionSound();  // Play connection sound
         }
     }
 
@@ -24,8 +28,8 @@ public class ConnectionDetector : MonoBehaviour
     {
         if (other.CompareTag("Cable"))
         {
-            isConnected = false;  // Mark as not connected
-            SetRenderers(false);  // Turn off the renderer when the connector moves away
+            isConnected = false;
+            SetRenderers(false);
         }
     }
 
@@ -33,15 +37,21 @@ public class ConnectionDetector : MonoBehaviour
     {
         if (other.CompareTag("Cable") && isConnected)
         {
-            SetRenderers(false);  // Turn off the renderer if the connection is made
+            StartCoroutine(TurnOffRenderersAfterDelay(2));  // Start the coroutine with a 2-second delay
         }
+    }
+
+    private IEnumerator TurnOffRenderersAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SetRenderers(false);
     }
 
     private void SetRenderers(bool state)
     {
         foreach (var renderer in allRenderers)
         {
-            renderer.enabled = state;  // Toggle each renderer based on the passed state
+            renderer.enabled = state;
         }
     }
 }

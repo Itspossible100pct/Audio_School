@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private AudioSource _speakerSource00;
+    [SerializeField] private AudioSource _speakerSource01;
+    [SerializeField] private AudioSource _mixerSource;
+    [SerializeField] private AudioSource _micSource;
+    [SerializeField] private AudioClip[] _connectionSound;
+    [SerializeField] private AudioClip _speakerFeedback;
+
+
+    void PlayConnectionSound()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
 }

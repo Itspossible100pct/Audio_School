@@ -10,11 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3076776137196057477}
   - component: {fileID: 8352695842819923326}
-  - component: {fileID: 6668907700002239986}
+  - component: {fileID: 6091563774681971235}
   - component: {fileID: 2164126187116362785}
   - component: {fileID: 9095167084315720788}
   - component: {fileID: 3173300175365115705}
   - component: {fileID: 1919048450916588286}
+  - component: {fileID: 5919120707127993415}
+  - component: {fileID: 4123711301615250244}
   - component: {fileID: 7086639785101571084}
   - component: {fileID: 7301265164143832367}
   - component: {fileID: 3687567772960014763}
@@ -50,7 +52,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274772829151005609}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &6668907700002239986
+--- !u!114 &6091563774681971235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 4408321e-0967-4b80-95f4-64181e6e145a
+  instanceId: 98fbd47f-471c-4b53-8e01-81e39c123a9d
   version: 1
 --- !u!23 &2164126187116362785
 MeshRenderer:
@@ -147,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _snapDestination: {fileID: 0}
-  _mic: {fileID: 0}
+  _newParent: {fileID: 0}
   isSnapped: 0
 --- !u!114 &1919048450916588286
 MonoBehaviour:
@@ -168,6 +170,52 @@ MonoBehaviour:
   _twoGrabTransformer: {fileID: 0}
   _targetTransform: {fileID: 3076776137196057477}
   _maxGrabPoints: -1
+--- !u!114 &5919120707127993415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274772829151005609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1bc992571301d4a9602ac95ef4c71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactorFilters: []
+  _maxInteractors: -1
+  _maxSelectingInteractors: -1
+  _data: {fileID: 0}
+  _pointableElement: {fileID: 1919048450916588286}
+  _rigidbody: {fileID: 9095167084315720788}
+  _grabSource: {fileID: 0}
+  _useClosestPointAsGrabSource: 0
+  _releaseDistance: 0
+  _resetGrabOnGrabsUpdated: 1
+  _physicsGrabbable: {fileID: 0}
+--- !u!114 &4123711301615250244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274772829151005609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1bc992571301d4a9602ac95ef4c71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactorFilters: []
+  _maxInteractors: -1
+  _maxSelectingInteractors: -1
+  _data: {fileID: 0}
+  _pointableElement: {fileID: 1919048450916588286}
+  _rigidbody: {fileID: 9095167084315720788}
+  _grabSource: {fileID: 0}
+  _useClosestPointAsGrabSource: 0
+  _releaseDistance: 0
+  _resetGrabOnGrabsUpdated: 1
+  _physicsGrabbable: {fileID: 0}
 --- !u!114 &7086639785101571084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 3f1827c2-c682-46d8-999e-0954e37e833e
-  instanceId: 55794b25-886b-42d2-8987-c3f338d89d8c
+  instanceId: bd0a733e-8e5f-49ef-9323-fad65a135ab4
   version: 1
 --- !u!114 &4996875915719473141
 MonoBehaviour:
@@ -496,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 9b8a4882-090c-445f-a4e7-c7511e0f16f4
+  instanceId: 30af1736-0206-4d72-bf52-da7b166a0632
   version: 1
 --- !u!1 &1946941908648585194
 GameObject:

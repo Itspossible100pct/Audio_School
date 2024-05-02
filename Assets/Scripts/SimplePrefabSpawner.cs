@@ -36,9 +36,8 @@ public class SimplePrefabSpawner : MonoBehaviour
     void Start()
     {
         canPlaceObjects = false;
-        if (prefabPairs.Count > 0)
+        if (prefabPairs != null && prefabPairs.Count > 0)
             _currentPreview = Instantiate(prefabPairs[_currentPrefabIndex].previewPrefab);
-        
     }
     
     public void EnablePlacing()
@@ -53,7 +52,8 @@ public class SimplePrefabSpawner : MonoBehaviour
     
     void Update()
     {
-        //if (!canPlaceObjects) return;
+        if (!canPlaceObjects || _currentPreview == null) return;
+        
         Debug.Log(canPlaceObjects + "is the answer I Seek");
         Ray ray = new Ray(
             OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch), OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch) * Vector3.forward);
@@ -80,7 +80,10 @@ public class SimplePrefabSpawner : MonoBehaviour
 
     void InstantiateCurrentPrefab(Vector3 position)
     {
-        Instantiate(prefabPairs[_currentPrefabIndex].prefab, position, _currentPreview.transform.rotation);
+        if (prefabPairs != null && _currentPrefabIndex < prefabPairs.Count)
+        {
+            Instantiate(prefabPairs[_currentPrefabIndex].prefab, position, _currentPreview.transform.rotation);
+        }
     }
 
     /* void UpdatePreviewToNextPrefab()
@@ -97,21 +100,24 @@ public class SimplePrefabSpawner : MonoBehaviour
     void UpdatePreviewToNextPrefab()
     {
         Destroy(_currentPreview);
-        _currentPrefabIndex = (_currentPrefabIndex + 1) % prefabPairs.Count;
+        if (prefabPairs != null && prefabPairs.Count > 0)
+        {
+            _currentPrefabIndex = (_currentPrefabIndex + 1) % prefabPairs.Count;
 
-        if (_currentPrefabIndex == 0) // All objects have been cycled through
-        {
-            DisablePlacing();
-        }
-        else
-        {
-            _currentPreview = Instantiate(prefabPairs[_currentPrefabIndex].previewPrefab);
+            if (_currentPrefabIndex == 0) // All objects have been cycled through
+            {
+                DisablePlacing();
+            }
+            else
+            {
+                _currentPreview = Instantiate(prefabPairs[_currentPrefabIndex].previewPrefab);
+            }
         }
     }
     
     public void CheckAllConnections()
     {
-        if (connections.All(c => c.isConnected))
+        if (connections != null && connections.All(c => c.isConnected))
         {
             UIManager uiManager = FindObjectOfType<UIManager>();
             if (uiManager != null)

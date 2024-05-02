@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _diagram;
     [SerializeField] private GameObject _xlrCanvas;
 
+    [SerializeField] private GameObject _microphone;
+
     [SerializeField] private GameObject _cableGroup;
 
     [SerializeField] private AudioSource _canvasAudioSource;
@@ -36,6 +38,8 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(DelayBeforeVoiceover(2));
+        _bGM.Play(0);
         
         // Add listeners to buttons
         continueButton1.onClick.AddListener(ShowMessageTwo);
@@ -54,19 +58,19 @@ public class UIManager : MonoBehaviour
         _onboard03.SetActive(false);
 
         ShowOnboarding();
-        StartCoroutine(DelayBeforeVoiceover(2));
+        
         }
 
     public void ShowOnboarding()
     {
-        StartCoroutine(DelayBeforeVoiceover(2));
+        StartCoroutine(DelayBeforeVoiceover(3));
         _onboardMain.SetActive(true);
         _onboard01.SetActive(true);
         // Display initial onboarding message
         Debug.Log("Welcome to Audio School: Learn your sound tech skills!");
         // Additional logic for playing voiceover or showing visuals can be added here
         
-        StartCoroutine(DelayBeforeVoiceover(2));
+        StartCoroutine(DelayBeforeVoiceover(3));
         _canvasAudioSource.PlayOneShot(_audioBoard01);
     }
 
@@ -102,10 +106,10 @@ public class UIManager : MonoBehaviour
         _diagram.SetActive(true);
         
         
-        StartCoroutine(DelayBeforeVoiceover(1));
+        StartCoroutine(DelayBeforeVoiceover(2));
         _canvasAudioSource.PlayOneShot(_audioBoard04);
-        StartCoroutine(DelayBeforeVoiceover(15));
-        StartLesson();
+        StartCoroutine(DelayBeforeStart());
+        
     }
 
     public void StartLesson()
@@ -118,6 +122,7 @@ public class UIManager : MonoBehaviour
         spawner.EnablePlacing();
         helpCanvas.SetActive(true); // Activate the help canvas
         _cableGroup.SetActive(true);
+        _microphone.SetActive(true);
         
     }
 
@@ -131,6 +136,14 @@ public class UIManager : MonoBehaviour
     private IEnumerator DelayBeforeVoiceover(float delay)
     {
         yield return new WaitForSecondsRealtime(delay);
+    }
+    
+    private IEnumerator DelayBeforeStart()
+    {
+        yield return new WaitForSecondsRealtime(5);
+        StartLesson();
+        yield return new WaitForSecondsRealtime(15); // Here we leave time for the player to spawn gear.
+
     }
 
     public void FinishLesson()

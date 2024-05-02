@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 96ede339-1b3b-4178-a9cc-065aa3795129
+  instanceId: 95f7c1bc-c913-4c3e-8ec3-8d5f4506cc65
   version: 1
 --- !u!114 &6188335982440081804
 MonoBehaviour:
@@ -80,8 +80,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9055686416487322281}
-  - component: {fileID: 4559201497487126187}
   - component: {fileID: 3027360220850949159}
+  - component: {fileID: 2622307393124980394}
   - component: {fileID: 6476824644731368275}
   - component: {fileID: 7910101095376352162}
   - component: {fileID: 3175509598950423581}
@@ -112,7 +112,15 @@ Transform:
   - {fileID: 6058974769570438470}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4559201497487126187
+--- !u!33 &3027360220850949159
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498177259908710673}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2622307393124980394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,17 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b023183069df224080314a560e6e1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: 59e0d890-c5f3-449e-b5e6-25af59ee445b
+  blockId: f8766c17-aaf8-4b55-9431-de8deea83842
+  instanceId: 748588c5-cbe4-457c-9153-f22412d0a8ca
   version: 1
---- !u!33 &3027360220850949159
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6498177259908710673}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &6476824644731368275
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _snapDestination: {fileID: 0}
-  _mic: {fileID: 0}
+  _newParent: {fileID: 0}
   isSnapped: 0
 --- !u!65 &4864753997081328940
 BoxCollider:
