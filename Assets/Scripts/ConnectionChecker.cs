@@ -5,12 +5,13 @@ using UnityEngine;
 public class ConnectionDetector : MonoBehaviour
 {
     [SerializeField] private AudioManager _audioManager;
+    [SerializeField] private UIManager uiManager;  // Reference to the UIManager
     public bool isConnected = false;
     private MeshRenderer[] allRenderers;  // Array to hold all relevant renderers
+    public int connectionIndex;  // Index to identify this connection in the UIManager
 
     void Start()
     {
-        // Get all MeshRenderer components in this GameObject and its children
         allRenderers = GetComponentsInChildren<MeshRenderer>(true);
     }
 
@@ -20,7 +21,8 @@ public class ConnectionDetector : MonoBehaviour
         {
             isConnected = true;  // Assume connected when cable triggers the collider
             SetRenderers(true);
-            //_audioManager.PlayConnectionSound();  // Play connection sound
+            //_audioManager.PlayConnectionSound();  // Optionally play connection sound
+            uiManager.UpdateConnectionStatus(connectionIndex, isConnected);  // Notify UIManager of status change
         }
     }
 
@@ -30,6 +32,7 @@ public class ConnectionDetector : MonoBehaviour
         {
             isConnected = false;
             SetRenderers(false);
+            uiManager.UpdateConnectionStatus(connectionIndex, isConnected);  // Notify UIManager of status change
         }
     }
 

@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private AudioSource _bGM;
     
-    
+    private bool[] connections = new bool[6];  // Array to track the connection status of six connectors
    
 
     void Start()
@@ -123,7 +123,7 @@ public class UIManager : MonoBehaviour
         _transporter.EnableTransport();
         helpCanvas.SetActive(true); // Activate the help canvas
         _cableGroup.SetActive(true);
-        _microphone.SetActive(true);
+        
         
     }
 
@@ -153,6 +153,21 @@ public class UIManager : MonoBehaviour
         StartCoroutine(DelayBeforeVoiceover(8));
         
         _canvasAudioSource.PlayOneShot(_audioBoard05);
+    }
+    
+    public void UpdateConnectionStatus(int index, bool status)
+    {
+        connections[index] = status;
+        CheckAllConnections();
+    }
+
+    private void CheckAllConnections()
+    {
+        foreach (bool isConnected in connections)
+        {
+            if (!isConnected) return;  // If any connection is not made, exit the method
+        }
+        FinishLesson();  // Call FinishLesson when all connections are made
     }
 
    

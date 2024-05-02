@@ -60,7 +60,7 @@ public class SnapToLocation : MonoBehaviour
         {
             connector.gameObject.transform.position = transform.position;
             connector.gameObject.transform.rotation = _snapRotationReference.transform.rotation;
-            _audioSource.PlayOneShot(_connectionSound[Random.Range(0,2)], .5f);
+            //_audioSource.PlayOneShot(_connectionSound[Random.Range(0,2)], .5f);
         }
         
     }
