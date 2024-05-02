@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Meta.XR.MRUtilityKit;
 using UnityEngine;
 
@@ -51,12 +53,12 @@ public class SimplePrefabSpawner : MonoBehaviour
     
     void Update()
     {
-        if (!canPlaceObjects) return;
-        
+        //if (!canPlaceObjects) return;
+        Debug.Log(canPlaceObjects + "is the answer I Seek");
         Ray ray = new Ray(
             OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch), OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch) * Vector3.forward);
 
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit) && canPlaceObjects)
         {
             if (_currentPreview != null)
             {
@@ -99,7 +101,7 @@ public class SimplePrefabSpawner : MonoBehaviour
 
         if (_currentPrefabIndex == 0) // All objects have been cycled through
         {
-            //FindObjectOfType<UIManager>().EndPlacing();
+            DisablePlacing();
         }
         else
         {
@@ -109,7 +111,7 @@ public class SimplePrefabSpawner : MonoBehaviour
     
     public void CheckAllConnections()
     {
-        //if (connections.All(c => c.isConnected))
+        if (connections.All(c => c.isConnected))
         {
             UIManager uiManager = FindObjectOfType<UIManager>();
             if (uiManager != null)

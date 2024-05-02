@@ -676,6 +676,7 @@ GameObject:
   - component: {fileID: 5584523012082189086}
   - component: {fileID: 6379100740910301177}
   - component: {fileID: 4368227123895047250}
+  - component: {fileID: 4615573910865612092}
   m_Layer: 0
   m_Name: XLR Fem Socket (R)
   m_TagString: Untagged
@@ -784,6 +785,19 @@ MonoBehaviour:
   snapped: 0
   connector: {fileID: 0}
   _snapRotationReference: {fileID: 3850527096845611319}
+--- !u!114 &4615573910865612092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3850527096845611319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2916e2222c7fe2c4a96573b192d8a669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isConnected: 0
 --- !u!1 &3960749022799259262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,6 +1085,7 @@ GameObject:
   - component: {fileID: 4929299757750625401}
   - component: {fileID: 463563865637768826}
   - component: {fileID: 3586269125337874537}
+  - component: {fileID: 9034784453143603594}
   m_Layer: 0
   m_Name: XLR Fem Socket (L)
   m_TagString: Untagged
@@ -1179,6 +1194,19 @@ MonoBehaviour:
   snapped: 0
   connector: {fileID: 0}
   _snapRotationReference: {fileID: 5056912448669116133}
+--- !u!114 &9034784453143603594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5056912448669116133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2916e2222c7fe2c4a96573b192d8a669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isConnected: 0
 --- !u!1 &5274873847988539299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,6 +1218,7 @@ GameObject:
   - component: {fileID: 6475246924973762610}
   - component: {fileID: 3833457144439163428}
   - component: {fileID: 7461357392472745023}
+  - component: {fileID: 5858572791558276074}
   m_Layer: 0
   m_Name: XLR Male Socket In02
   m_TagString: Untagged
@@ -1253,6 +1282,19 @@ MonoBehaviour:
   snapped: 0
   connector: {fileID: 0}
   _snapRotationReference: {fileID: 5274873847988539299}
+--- !u!114 &5858572791558276074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5274873847988539299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2916e2222c7fe2c4a96573b192d8a669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isConnected: 0
 --- !u!1 &5425303426755287498
 GameObject:
   m_ObjectHideFlags: 0

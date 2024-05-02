@@ -1576,6 +1576,7 @@ GameObject:
   - component: {fileID: 4655966893209025191}
   - component: {fileID: 7939701089497492268}
   - component: {fileID: 4357562824488357799}
+  - component: {fileID: 2709320072583913436}
   m_Layer: 0
   m_Name: XLR Male Socket KRK01
   m_TagString: Untagged
@@ -1639,6 +1640,19 @@ MonoBehaviour:
   snapped: 0
   connector: {fileID: 0}
   _snapRotationReference: {fileID: 4541965124738566704}
+--- !u!114 &2709320072583913436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541965124738566704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2916e2222c7fe2c4a96573b192d8a669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isConnected: 0
 --- !u!1 &4790602082095201675
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,12 +10,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button continueButton2; // For the second continue
     [SerializeField] private Button continueButton3; // For the third continue
     [SerializeField] private Button skipButton;
-    [SerializeField] private Canvas helpCanvas; // UI canvas that contains help materials
+    [SerializeField] private GameObject helpCanvas; // UI canvas that contains help materials
 
     [SerializeField] private GameObject _onboard01;
     [SerializeField] private GameObject _onboard02;
     [SerializeField] private GameObject _onboard03;
     [SerializeField] private GameObject _onboardMain;
+    [SerializeField] private GameObject _diagram;
+    [SerializeField] private GameObject _xlrCanvas;
 
     [SerializeField] private GameObject _cableGroup;
 
@@ -52,7 +54,8 @@ public class UIManager : MonoBehaviour
         _onboard03.SetActive(false);
 
         ShowOnboarding();
-    }
+        StartCoroutine(DelayBeforeVoiceover(2));
+        }
 
     public void ShowOnboarding()
     {
@@ -62,7 +65,8 @@ public class UIManager : MonoBehaviour
         // Display initial onboarding message
         Debug.Log("Welcome to Audio School: Learn your sound tech skills!");
         // Additional logic for playing voiceover or showing visuals can be added here
-        StartCoroutine(DelayBeforeVoiceover(3));
+        
+        StartCoroutine(DelayBeforeVoiceover(2));
         _canvasAudioSource.PlayOneShot(_audioBoard01);
     }
 
@@ -94,37 +98,39 @@ public class UIManager : MonoBehaviour
     {
         _onboardMain.SetActive(false);
         
-        // Show detailed instructions about XLR cables
-        Debug.Log("Introduction to XLR Cables");
+        // Show Audio Signal Flow Diagram
+        _diagram.SetActive(true);
+        
         
         StartCoroutine(DelayBeforeVoiceover(1));
         _canvasAudioSource.PlayOneShot(_audioBoard04);
-        StartCoroutine(DelayBeforeVoiceover(10));
-        _cableGroup.SetActive(true);
+        StartCoroutine(DelayBeforeVoiceover(15));
         StartLesson();
     }
 
     public void StartLesson()
     {
-        //Show diagram by toggling it on.  We should allow that player can open and close it too. 
+        //Show XLR image. 
+        _xlrCanvas.SetActive(true);
         
         // Actions to start the actual lesson
         Debug.Log("Starting the lesson...");
         spawner.EnablePlacing();
-        helpCanvas.enabled = true; // Activate the help canvas
-        // Additional logic for starting the lesson can be added here
+        helpCanvas.SetActive(true); // Activate the help canvas
+        _cableGroup.SetActive(true);
+        
     }
 
     public void HandleSkip()
     {
-        // Skip the onboarding directly to the lesson
+        
         Debug.Log("Skipping to lesson.");
         StartLesson(); // Use StartLesson to unify the behavior
     }
 
     private IEnumerator DelayBeforeVoiceover(float delay)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSecondsRealtime(delay);
     }
 
     public void FinishLesson()
@@ -134,6 +140,7 @@ public class UIManager : MonoBehaviour
         
         _canvasAudioSource.PlayOneShot(_audioBoard05);
     }
-    
+
+   
     
 }
