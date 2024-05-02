@@ -37,12 +37,19 @@ public class SimplePrefabSpawner : MonoBehaviour
     {
         canPlaceObjects = false;
         if (prefabPairs != null && prefabPairs.Count > 0)
+        {
             _currentPreview = Instantiate(prefabPairs[_currentPrefabIndex].previewPrefab);
+            _currentPreview.SetActive(false); // Disable visibility of the preview prefab
+        }
     }
     
     public void EnablePlacing()
     {
         canPlaceObjects = true;
+        if (_currentPreview != null)
+        {
+            _currentPreview.SetActive(true); // Make the preview visible only when placing is enabled
+        }
     }
 
     public void DisablePlacing()

@@ -5,7 +5,8 @@ using UnityEngine.UI; // Ensure this is added to handle UI components directly
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private SimplePrefabSpawner spawner;
+    //[SerializeField] private SimplePrefabSpawner spawner;
+    [SerializeField] private EquipmentTransporter _transporter;
     [SerializeField] private Button continueButton1; // For the first continue
     [SerializeField] private Button continueButton2; // For the second continue
     [SerializeField] private Button continueButton3; // For the third continue
@@ -49,7 +50,7 @@ public class UIManager : MonoBehaviour
         // startButton.onClick.AddListener(StartLesson);
 
         // Initially disable object placement and help canvas
-        spawner.DisablePlacing();
+        _transporter.DisableTransport();
         // helpCanvas.enabled = false; // Ensure the help canvas is initially disabled
         
         _onboardMain.SetActive(false);
@@ -91,7 +92,7 @@ public class UIManager : MonoBehaviour
         _onboard03.SetActive(true);
         // Show the message to prepare for the lesson
         Debug.Log("Let's get sound out of the system. Avoid feedback.");
-        spawner.EnablePlacing(); // Enable placing objects if part of onboarding requires this
+        _transporter.EnableTransport(); // Enable placing objects if part of onboarding requires this
         
         // Additional voiceover or visual effects can be triggered here
         StartCoroutine(DelayBeforeVoiceover(3));
@@ -119,7 +120,7 @@ public class UIManager : MonoBehaviour
         
         // Actions to start the actual lesson
         Debug.Log("Starting the lesson...");
-        spawner.EnablePlacing();
+        _transporter.EnableTransport();
         helpCanvas.SetActive(true); // Activate the help canvas
         _cableGroup.SetActive(true);
         _microphone.SetActive(true);
