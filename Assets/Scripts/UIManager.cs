@@ -1,31 +1,47 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Ensure this is added to handle UI components directly
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private SimplePrefabSpawner spawner;
+    [SerializeField] private Button continueButton;
+    [SerializeField] private Button skipButton;
 
-    public void StartTutorial()
+    void Start()
     {
-        // Show tutorial window with instructions
-        // On user confirmation:
+        // Add listeners to buttons
+        continueButton.onClick.AddListener(HandleContinue);
+        skipButton.onClick.AddListener(HandleSkip);
+
+        // Initially disable object placement
+        spawner.DisablePlacing();
+        
+        ShowOnboarding();
+    }
+
+    void ShowOnboarding()
+    {
+        // Display initial onboarding message
+        // Placeholder: Insert your UI code to show onboarding message
+        Debug.Log("Welcome to Audio School: Learn your sound tech skills!");
+    }
+
+    public void HandleContinue()
+    {
+        // Continue to the next part of onboarding or lesson
+        spawner.EnablePlacing(); // Enable placing objects if part of onboarding requires this
+        // Placeholder: Update UI to show next steps or messages
+        Debug.Log("Lesson 1: Mapping the Vibrations - Connect the system.");
+    }
+
+    public void HandleSkip()
+    {
+        // Skip the onboarding directly to the lesson
         spawner.EnablePlacing();
+        // Possibly load the lesson scene or continue in the same scene
+        Debug.Log("Skipping to lesson.");
     }
 
-    public void EndPlacing()
-    {
-        // Ask if the player is ready for the next part or wants to reposition objects
-        // Based on user input, either call spawner.DisablePlacing() or allow repositioning
-    }
-    
-    public void ShowRepositionInstructions()
-    {
-        // Display UI message about how to select and move objects
-    }
-    
-    public void ProceedToNextLesson()
-    {
-        // Code to load the next part of the lesson or an external tutorial
-    }
+    // Add additional methods as needed for other UI interactions
 }

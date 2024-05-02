@@ -98,7 +98,7 @@ public class SimplePrefabSpawner : MonoBehaviour
 
         if (_currentPrefabIndex == 0) // All objects have been cycled through
         {
-            FindObjectOfType<UIManager>().EndPlacing();
+            //FindObjectOfType<UIManager>().EndPlacing();
         }
         else
         {
