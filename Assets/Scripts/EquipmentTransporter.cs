@@ -5,6 +5,15 @@ using Oculus; // Include this if you're using OVRInput
 
 public class EquipmentTransporter : MonoBehaviour
 {
+    public enum TransporterMode
+    {
+        Placing,
+        Adjusting,
+        None
+    }
+
+    private TransporterMode currentMode = TransporterMode.None;
+    
     [System.Serializable]
     public struct EquipmentPair
     {
@@ -77,9 +86,8 @@ public class EquipmentTransporter : MonoBehaviour
 
                 // Thumbstick input for adjusting Y-axis rotation
                 Vector2 thumbstickInput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.RTouch);
-                cumulativeYRotation += thumbstickInput.x * Time.deltaTime * 50;
-                currentPreview.transform.Rotate(0, cumulativeYRotation, 0);
-                cumulativeYRotation = 0; // Reset cumulative rotation after applying to avoid jitter
+                cumulativeYRotation += thumbstickInput.x * Time.deltaTime * 50; // accumulate rotation input over time
+                currentPreview.transform.rotation *= Quaternion.Euler(0, cumulativeYRotation, 0);
             }
         }
 
