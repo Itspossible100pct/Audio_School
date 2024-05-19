@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Oculus; // Include this if you're using OVRInput
+using Oculus;
+using UnityEngine.Serialization; // Include this if you're using OVRInput
 
 public class EquipmentTransporter : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class EquipmentTransporter : MonoBehaviour
         None
     }
 
-    private TransporterMode currentMode = TransporterMode.None;
+    private TransporterMode _currentMode = TransporterMode.None;
     
     [System.Serializable]
     public struct EquipmentPair
@@ -21,13 +22,13 @@ public class EquipmentTransporter : MonoBehaviour
         public GameObject preview;   // Preview (ghost) object for positioning.
     }
 
-    [SerializeField] private UIManager uiManager; // Reference to the UI Manager.
-    [SerializeField] private EquipmentPair[] equipmentPairs; // Array of equipment and their corresponding previews.
-    [SerializeField] private ConnectionDetector[] connections; // Array of all ConnectionDetector components.
+    [SerializeField] private UIManager _uiManager; // Reference to the UI Manager.
+    [SerializeField] private EquipmentPair[] _equipmentPairs; // Array of equipment and their corresponding previews.
+    [SerializeField] private ConnectionDetector[] _connections; // Array of all ConnectionDetector components.
 
-    private GameObject currentPreview;
-    private int currentEquipmentIndex = 0;
-    private float cumulativeYRotation = 0f;
+    private GameObject _currentPreview;
+    private int _currentEquipmentIndex = 0;
+    private float _cumulativeYRotation = 0f;
     public bool canTransport = false;
 
     void Start()
@@ -37,7 +38,7 @@ public class EquipmentTransporter : MonoBehaviour
 
     private void InitializePreviews()
     {
-        foreach (var pair in equipmentPairs)
+        foreach (var pair in _equipmentPairs)
         {
             pair.equipment.SetActive(false); // Ensure all equipment are initially inactive.
             pair.preview.SetActive(false);  // Ensure all previews are initially inactive.
@@ -47,30 +48,30 @@ public class EquipmentTransporter : MonoBehaviour
     public void EnableTransport()
     {
         canTransport = true;
-        if (equipmentPairs.Length > 0)
-            SetPreviewObject(currentEquipmentIndex); // Activate the initial preview when transport is enabled.
+        if (_equipmentPairs.Length > 0)
+            SetPreviewObject(_currentEquipmentIndex); // Activate the initial preview when transport is enabled.
     }
 
     public void DisableTransport()
     {
         canTransport = false;
-        if (currentPreview != null)
-            currentPreview.SetActive(false);
+        if (_currentPreview != null)
+            _currentPreview.SetActive(false);
     }
 
     private void SetPreviewObject(int index)
     {
-        if (currentPreview != null)
+        if (_currentPreview != null)
         {
-            currentPreview.SetActive(false); // Deactivate the previous preview.
+            _currentPreview.SetActive(false); // Deactivate the previous preview.
         }
-        currentPreview = equipmentPairs[index].preview;
-        currentPreview.SetActive(true); // Activate the new preview.
+        _currentPreview = _equipmentPairs[index].preview;
+        _currentPreview.SetActive(true); // Activate the new preview.
     }
 
     void Update()
     {
-        if (!canTransport || currentPreview == null) return;
+        if (!canTransport || _currentPreview == null) return;
 
         Vector3 controllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
         Quaternion controllerRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
@@ -81,13 +82,13 @@ public class EquipmentTransporter : MonoBehaviour
             // Ensure that the surface is roughly horizontal by checking the angle is close to zero
             if (Vector3.Angle(Vector3.up, hit.normal) < 10f)
             {
-                currentPreview.transform.position = hit.point;
-                currentPreview.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                _currentPreview.transform.position = hit.point;
+                _currentPreview.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 
                 // Thumbstick input for adjusting Y-axis rotation
                 Vector2 thumbstickInput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.RTouch);
-                cumulativeYRotation += thumbstickInput.x * Time.deltaTime * 50; // accumulate rotation input over time
-                currentPreview.transform.rotation *= Quaternion.Euler(0, cumulativeYRotation, 0);
+                _cumulativeYRotation += thumbstickInput.x * Time.deltaTime * 50; // accumulate rotation input over time
+                _currentPreview.transform.rotation *= Quaternion.Euler(0, _cumulativeYRotation, 0);
             }
         }
 
@@ -107,53 +108,53 @@ public class EquipmentTransporter : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            currentPreview.transform.position = hit.point;
-            currentPreview.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+            _currentPreview.transform.position = hit.point;
+            _currentPreview.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
             HandleThumbstickRotation();
         }
         else
         {
-            currentPreview.transform.position = controllerPosition + controllerRotation * Vector3.forward * 2f; // Default position in front of the controller
+            _currentPreview.transform.position = controllerPosition + controllerRotation * Vector3.forward * 2f; // Default position in front of the controller
         }
     }
 
     private void HandleThumbstickRotation()
     {
         Vector2 thumbstickInput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.RTouch);
-        cumulativeYRotation += thumbstickInput.x * Time.deltaTime * 50;
-        currentPreview.transform.RotateAround(currentPreview.transform.position, Vector3.up, cumulativeYRotation);
-        cumulativeYRotation = 0; // Reset cumulative rotation after applying to avoid continuous rotation
+        _cumulativeYRotation += thumbstickInput.x * Time.deltaTime * 50;
+        _currentPreview.transform.RotateAround(_currentPreview.transform.position, Vector3.up, _cumulativeYRotation);
+        _cumulativeYRotation = 0; // Reset cumulative rotation after applying to avoid continuous rotation
     }
 
     private void PlaceCurrentEquipment()
     {
-        var equipment = equipmentPairs[currentEquipmentIndex].equipment;
-        equipment.transform.position = currentPreview.transform.position;
-        equipment.transform.rotation = currentPreview.transform.rotation;
+        var equipment = _equipmentPairs[_currentEquipmentIndex].equipment;
+        equipment.transform.position = _currentPreview.transform.position;
+        equipment.transform.rotation = _currentPreview.transform.rotation;
         equipment.SetActive(true); // Activate the actual equipment.
         CheckAllConnections(); // Check connections after placing the equipment.
     }
 
     private void UpdatePreviewToNextEquipment()
     {
-        currentEquipmentIndex = (currentEquipmentIndex + 1) % equipmentPairs.Length;
-        if (currentEquipmentIndex == 0)
+        _currentEquipmentIndex = (_currentEquipmentIndex + 1) % _equipmentPairs.Length;
+        if (_currentEquipmentIndex == 0)
         {
             DisableTransport(); // Optionally stop transporting after cycling through all items.
         }
         else
         {
-            SetPreviewObject(currentEquipmentIndex); // Set up the next preview object.
+            SetPreviewObject(_currentEquipmentIndex); // Set up the next preview object.
         }
     }
 
     private void CheckAllConnections()
     {
-        if (connections != null && System.Array.TrueForAll(connections, c => c.isConnected))
+        if (_connections != null && System.Array.TrueForAll(_connections, c => c.isConnected))
         {
             Debug.Log("All connections have been made.");
-            if (uiManager != null)
-                uiManager.FinishLesson(); // Notify UIManager that all connections are complete.
+            if (_uiManager != null)
+                _uiManager.FinishLesson(); // Notify UIManager that all connections are complete.
         }
     }
 }

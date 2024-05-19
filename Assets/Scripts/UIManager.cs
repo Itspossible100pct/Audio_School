@@ -1,17 +1,18 @@
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI; // Ensure this is added to handle UI components directly
 
 public class UIManager : MonoBehaviour
 {
     //[SerializeField] private SimplePrefabSpawner spawner;
     [SerializeField] private EquipmentTransporter _transporter;
-    [SerializeField] private Button continueButton1; // For the first continue
-    [SerializeField] private Button continueButton2; // For the second continue
-    [SerializeField] private Button continueButton3; // For the third continue
-    [SerializeField] private Button skipButton;
-    [SerializeField] private GameObject helpCanvas; // UI canvas that contains help materials
+    [SerializeField] private Button _continueButton1; // For the first continue
+    [SerializeField] private Button _continueButton2; // For the second continue
+    [SerializeField] private Button _continueButton3; // For the third continue
+    [SerializeField] private Button _skipButton;
+    [SerializeField] private GameObject _helpCanvas; // UI canvas that contains help materials
 
     [SerializeField] private GameObject _onboard01;
     [SerializeField] private GameObject _onboard02;
@@ -34,7 +35,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private AudioSource _bGM;
     
-    private bool[] connections = new bool[6];  // Array to track the connection status of six connectors
+    private bool[] _connections = new bool[6];  // Array to track the connection status of six connectors
    
 
     void Start()
@@ -43,10 +44,10 @@ public class UIManager : MonoBehaviour
         _bGM.Play(0);
         
         // Add listeners to buttons
-        continueButton1.onClick.AddListener(ShowMessageTwo);
-        continueButton2.onClick.AddListener(ShowMessage3);
-        continueButton3.onClick.AddListener(IntroToXLRCables);
-        skipButton.onClick.AddListener(HandleSkip);
+        _continueButton1.onClick.AddListener(ShowMessageTwo);
+        _continueButton2.onClick.AddListener(ShowMessage3);
+        _continueButton3.onClick.AddListener(IntroToXLRCables);
+        _skipButton.onClick.AddListener(HandleSkip);
         // startButton.onClick.AddListener(StartLesson);
 
         // Initially disable object placement and help canvas
@@ -121,7 +122,7 @@ public class UIManager : MonoBehaviour
         // Actions to start the actual lesson
         Debug.Log("Starting the lesson...");
         _transporter.EnableTransport();
-        helpCanvas.SetActive(true); // Activate the help canvas
+        _helpCanvas.SetActive(true); // Activate the help canvas
         _cableGroup.SetActive(true);
         
         
@@ -157,13 +158,13 @@ public class UIManager : MonoBehaviour
     
     public void UpdateConnectionStatus(int index, bool status)
     {
-        connections[index] = status;
+        _connections[index] = status;
         CheckAllConnections();
     }
 
     private void CheckAllConnections()
     {
-        foreach (bool isConnected in connections)
+        foreach (bool isConnected in _connections)
         {
             if (!isConnected) return;  // If any connection is not made, exit the method
         }
